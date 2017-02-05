@@ -1,0 +1,31 @@
+- if @current_task
+  = render 'short_view'
+- else
+  = render 'short_form'
+
+%h1 Today Tasks
+
+%table.table
+  %thead
+    %tr
+      %th Date
+      %th Start
+      %th Finish
+      %th Category
+      %th Description
+      %th
+      %th
+      %th
+
+  %tbody
+    - @tasks.each do |task|
+      %tr
+        %td= task.start.strftime('%F')
+        %td= task.start.strftime('%T')
+        %td= task.finish ? task.finish.strftime('%T') : ''
+        %td= task.category.name
+        %td= task.description
+
+        %td= link_to 'Show', task
+        %td= link_to 'Edit', edit_task_path(task)
+        %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -1,0 +1,35 @@
+.navbar.navbar-inverse.navbar-fixed-top{:role=>'navigation'}
+  .container
+    .navbar-header
+      %button.navbar-toggle{:type=>"button", 'data-toggle'=>'collapse', 'data-target'=>'.navbar-collapse'}
+        %span.sr-only
+          Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+  
+      %a{:class=>"navbar-brand #{'color_menu' if controller_name == 'tasks'}", :href=>"/"}
+        %span{class: 'glyphicon glyphicon-thumbs-up'}
+        Just Tracker
+
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li{:class=>"#{'active' if controller_name == 'tasks'}"}
+          = link_to "Tasks", tasks_path
+  
+      %ul.nav.navbar-nav
+        %li{:class=>"#{'active' if controller_name == 'categories' }"}
+          = link_to "Categories", categories_path
+  
+
+      %ul.nav.navbar-nav.pull-right
+        - if user_signed_in?
+          %li
+            = link_to "#{current_user.email}"
+          %li
+            = link_to "Logout", destroy_user_session_path, method: :delete
+        - else
+          %li
+            = link_to "Login", new_user_session_path
+          %li
+            = link_to "SignUp", new_user_registration_path

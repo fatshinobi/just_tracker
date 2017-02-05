@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  categoty: one
+  description: MyString
+  start: 2017-02-04 21:15:32
+  finish: 2017-02-04 21:15:32
+
+two:
+  categoty: two
+  description: MyString
+  start: 2017-02-04 21:15:32
+  finish: 2017-02-04 21:15:32
