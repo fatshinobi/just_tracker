@@ -1,0 +1,11 @@
+%h1 Settings
+
+= form_tag settings_update_path, method: :post do
+  .field
+    %label{class: 'control-label'}
+      Time zone
+    = text_field_tag :time_zone, @time_zone, :class=>"form-control"
+  %br
+  .actions
+    = submit_tag 'Update', :class=>"btn btn-success"
+

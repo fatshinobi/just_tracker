@@ -21,6 +21,9 @@
         %li{:class=>"#{'active' if controller_name == 'categories' }"}
           = link_to "Categories", categories_path
   
+      %ul.nav.navbar-nav
+        %li{:class=>"#{'active' if controller_name == 'settings' }"}
+          = link_to "Settings", settings_index_path
 
       %ul.nav.navbar-nav.pull-right
         - if user_signed_in?

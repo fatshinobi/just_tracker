@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'settings/index'
+  post 'settings/update'
+
   devise_for :users
   resources :categories
 
