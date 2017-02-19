@@ -39,6 +39,9 @@ gem "haml"
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bootstrap_form'
 gem 'devise'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.43'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -59,3 +62,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rails_12factor', group: :production
+ruby "2.3.1"
