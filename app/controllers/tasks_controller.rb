@@ -4,9 +4,12 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.today(current_user)
+    date_param = params[:date]
+    tasks_date = date_param ? Time.parse(date_param) : Time.now
+    @tasks = Task.to_date(tasks_date, current_user)
     @task = Task.new
     @current_task = Task.currents(current_user).first
+    @statistics = Task.per_categories(current_user)
   end
 
   def finish

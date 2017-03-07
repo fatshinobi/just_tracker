@@ -28,4 +28,5 @@ $( document ).ready(function() {
 
 function init_main() {
   $('.date').datetimepicker({format: 'YYYY-MM-DD HH:mm'});
+  ds = new DateSetter('#task_datetimepicker');
 }

@@ -1,29 +1,46 @@
-- if @current_task
-  = render 'short_view'
-- else
-  = render 'short_form'
+.row
+  .col-sm-9
 
-%h1 Today Tasks
+    - if @current_task
+      = render 'short_view'
+    - else
+      = render 'short_form'
 
-%table.table
-  %thead
-    %tr
-      %th Date
-      %th Start
-      %th Finish
-      %th Category
-      %th Description
-      %th
-      %th
+    %h1{id: 'taks-caption'} Today Tasks
 
-  %tbody
-    - @tasks.each do |task|
-      %tr
-        %td= task.start.strftime('%F')
-        %td= task.start.strftime('%T')
-        %td= task.finish ? task.finish.strftime('%T') : ''
-        %td= task.category.name
-        %td= task.description
+    %table.table
+      %thead
+        %tr
+          %th Date
+          %th Start
+          %th Finish
+          %th Category
+          %th Description
+          %th
+          %th
 
-        %td= link_to 'Edit', edit_task_path(task)
-        %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %tbody{id: 'tasks-t-body'}
+        - @tasks.each do |task|
+          %tr
+            %td= task.start.strftime('%F')
+            %td= task.start.strftime('%T')
+            %td= task.finish ? task.finish.strftime('%T') : ''
+            %td= task.category.name
+            %td= task.description
+
+            %td= link_to 'Edit', edit_task_path(task)
+            %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  .col-sm-3
+    .form-group
+      .row
+        .col-md-8
+          %h2 For date:
+          #task_datetimepicker
+
+          %h2 Statistics:
+          %ul{class: 'list-group'}
+            - @statistics.each do |stat_item|
+              %li{class: 'list-group-item'}
+                = stat_item.category_name
+                %span{class: 'badge'}
+                  = stat_item.during.to_s.truncate(8, omission: '')
