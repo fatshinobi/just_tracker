@@ -1,5 +1,5 @@
 .row
-  .col-sm-9
+  .col-xs-12.col-sm-12.col-md-9
 
     - if @current_task
       = render 'short_view'
@@ -30,7 +30,7 @@
 
             %td= link_to 'Edit', edit_task_path(task)
             %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
-  .col-sm-3
+  .col-xs-12.col-sm-12.col-md-3
     .form-group
       .row
         .col-md-8
