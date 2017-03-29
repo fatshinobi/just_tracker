@@ -1,14 +1,16 @@
 %h1 Current Task
-%p 
-  %b Category: 
-  = @current_task.category.name
-%p
-  %b Start:
-  = @current_task.start.strftime('%F %T')
-- if !@current_task.description.empty?
-  %p 
-    %b Description:
-    = @current_task.description
+.panel.panel-default
+  .panel-body
+    %p 
+      %b Category: 
+      = @current_task.category.name
+    %p
+      %b Start:
+      = @current_task.start.strftime('%F %T')
+    - if !@current_task.description.empty?
+      %p 
+        %b Description:
+        = @current_task.description
 
 
-= link_to 'Finish', finish_tasks_path, method: :patch, :class=>"btn btn-success"
+    = link_to 'Finish', finish_tasks_path, method: :patch, :class=>"btn btn-success"

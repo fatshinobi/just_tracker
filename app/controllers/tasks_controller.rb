@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :continue]
 
   # GET /tasks
   # GET /tasks.json
@@ -12,10 +12,20 @@ class TasksController < ApplicationController
     @statistics = Task.per_categories(current_user)
   end
 
+  def continue
+    finish_current_task
+    Task.create(
+      category: @task.category,
+      description: @task.description,
+      user: current_user,
+      start: Time.now
+    )
+
+    redirect_to action: 'index'
+  end
+
   def finish
-    @current_task = Task.currents(current_user).first
-    @current_task.finish = Time.now
-    @current_task.save
+    finish_current_task
     redirect_to action: 'index'
   end
 
@@ -84,5 +94,12 @@ class TasksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:description, :category_id, :start, :finish)
+    end
+
+    def finish_current_task
+      @current_task = Task.currents(current_user).first
+      return if !@current_task
+      @current_task.finish = Time.now
+      @current_task.save
     end
 end

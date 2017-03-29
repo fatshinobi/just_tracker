@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     collection do
       patch 'finish'
     end
+    member do
+      patch 'continue'
+    end
   end
 
   root 'tasks#index'  

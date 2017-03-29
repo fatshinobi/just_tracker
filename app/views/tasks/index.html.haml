@@ -1,6 +1,5 @@
 .row
   .col-xs-12.col-sm-12.col-md-9
-
     - if @current_task
       = render 'short_view'
     - else
@@ -8,39 +7,43 @@
 
     %h1{id: 'taks-caption'} Today Tasks
 
-    %table.table
-      %thead
-        %tr
-          %th Date
-          %th Start
-          %th Finish
-          %th Category
-          %th Description
-          %th
-          %th
+    .panel.panel-default
+      .panel-body
 
-      %tbody{id: 'tasks-t-body'}
-        - @tasks.each do |task|
-          %tr
-            %td= task.start.strftime('%F')
-            %td= task.start.strftime('%T')
-            %td= task.finish ? task.finish.strftime('%T') : ''
-            %td= task.category.name
-            %td= task.description
+        %table.table
+          %thead
+            %tr
+              %th Date
+              %th Start
+              %th Finish
+              %th Category
+              %th Description
+              %th
+              %th
+              %th
 
-            %td= link_to 'Edit', edit_task_path(task)
-            %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %tbody{id: 'tasks-t-body'}
+            - @tasks.each do |task|
+              %tr
+                %td= task.start.strftime('%F')
+                %td= task.start.strftime('%T')
+                %td= task.finish ? task.finish.strftime('%T') : ''
+                %td= task.category.name
+                %td= task.description
+
+                %td= link_to 'Continue', continue_task_path(task), :method => :patch
+                %td= link_to 'Edit', edit_task_path(task)
+                %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
   .col-xs-12.col-sm-12.col-md-3
-    .form-group
-      .row
-        .col-md-8
-          %h2 For date:
-          #task_datetimepicker
+    %h2 For date:
+    .panel.panel-default
+      .panel-body
+        #task_datetimepicker
 
-          %h2 Statistics:
-          %ul{class: 'list-group'}
-            - @statistics.each do |stat_item|
-              %li{class: 'list-group-item'}
-                = stat_item.category_name
-                %span{class: 'badge'}
-                  = stat_item.during.to_s.truncate(8, omission: '')
+    %h2 Statistics:
+    %ul{class: 'list-group'}
+      - @statistics.each do |stat_item|
+        %li{class: 'list-group-item'}
+          = stat_item.category_name
+          %span{class: 'badge'}
+            = stat_item.during.to_s.truncate(8, omission: '')

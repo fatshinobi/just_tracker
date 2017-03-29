@@ -23,7 +23,7 @@ $(document).on('turbolinks:load', function() {
 });
 
 $( document ).ready(function() {
-  init_main();
+  //init_main();
 });
 
 function init_main() {

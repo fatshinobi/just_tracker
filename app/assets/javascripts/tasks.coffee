@@ -1,6 +1,7 @@
 class @DateSetter
   constructor: (id) ->
     that = @
+    $(id).html('')
     $(id).datetimepicker({inline: true, format: 'YYYY-MM-DD'})
     $(id).on('dp.change', (e) ->
       that.set_date_task(e.date.format('YYYY-MM-DD'))
