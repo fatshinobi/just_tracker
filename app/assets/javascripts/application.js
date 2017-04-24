@@ -27,6 +27,6 @@ $( document ).ready(function() {
 });
 
 function init_main() {
-  $('.date').datetimepicker({format: 'YYYY-MM-DD HH:mm'});
+  $('.date').datetimepicker({format: 'YYYY-MM-DD HH:mm', ignoreReadonly: true, allowInputToggle: true});
   ds = new DateSetter('#task_datetimepicker');
 }

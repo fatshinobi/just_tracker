@@ -9,31 +9,10 @@
 
     .panel.panel-default
       .panel-body
-
-        %table.table
-          %thead
-            %tr
-              %th Date
-              %th Start
-              %th Finish
-              %th Category
-              %th Description
-              %th
-              %th
-              %th
-
-          %tbody{id: 'tasks-t-body'}
+        #tasks-t-body
+          %ul{class: 'items-list'}
             - @tasks.each do |task|
-              %tr
-                %td= task.start.strftime('%F')
-                %td= task.start.strftime('%T')
-                %td= task.finish ? task.finish.strftime('%T') : ''
-                %td= task.category.name
-                %td= task.description
-
-                %td= link_to 'Continue', continue_task_path(task), :method => :patch
-                %td= link_to 'Edit', edit_task_path(task)
-                %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              = render partial: 'view', locals: { task: task }
   .col-xs-12.col-sm-12.col-md-3
     %h2 For date:
     .panel.panel-default

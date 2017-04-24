@@ -8,13 +8,13 @@
 
   = f.label :start
   .input-group.date.form-group
-    = f.text_field :start, :class => 'form-control', :hide_label => true
+    = f.text_field :start, :hide_label => true, :readonly => true
     %span{class: 'input-group-addon'}
       %span{class: 'glyphicon glyphicon-calendar'}
 
   = f.label :finish
   .input-group.date.form-group
-    = f.text_field :finish, :class => 'form-control', :hide_label => true
+    = f.text_field :finish, :hide_label => true, :readonly => true
 
     %span{class: 'input-group-addon'}
       %span{class: 'glyphicon glyphicon-calendar'}

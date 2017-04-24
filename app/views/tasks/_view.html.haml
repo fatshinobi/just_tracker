@@ -1,0 +1,26 @@
+%li
+  .task-body
+    .task-time
+      = task.start.strftime('%T')
+      &ndash;
+      = task.finish ? task.finish.strftime('%H:%M') : 'Now'
+  
+    %div
+      %h4
+        = task.category.name
+        %small
+          = task.description
+
+  .task-buttons
+    %ul{class: 'list-inline item-icons'}
+      %li
+        = link_to continue_task_path(task), :method => :patch, title: 'Continue' do
+          %i{class: 'glyphicon glyphicon-hand-right'}
+      
+      %li
+        = link_to edit_task_path(task), title: 'Edit' do
+          %i{class: 'glyphicon glyphicon-pencil'}
+
+      %li
+        = link_to task, :method => :delete, :data => { :confirm => 'Are you sure?' }, title: 'Destroy' do
+          %i{class: 'glyphicon glyphicon-remove'}
