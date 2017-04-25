@@ -64,9 +64,22 @@ body
 
 .task-body
  width: 100%
+ color: #777
+ h4
+  color: #333
+  margin-top: 5px
+  margin-bottom: 5px
+ margin-top: 5px
+ margin-bottom: 5px
 
-.task-body > div
- display: inline-block
+@media(min-width:768px)
+ .task-body > div
+  display: inline-block
+
+@media(max-width:767px)
+ .task-body > div
+  display: block
+  
 
 .task-time
  margin-right: 10px
