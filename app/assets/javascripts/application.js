@@ -16,17 +16,17 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require bootstrap-datetimepicker
+//= require detect_timezone
+//= require jquery.detect_timezone
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
   init_main();
 });
 
-$( document ).ready(function() {
-  //init_main();
-});
-
 function init_main() {
   $('.date').datetimepicker({format: 'YYYY-MM-DD HH:mm', ignoreReadonly: true, allowInputToggle: true});
   ds = new DateSetter('#task_datetimepicker');
+
+  $('#user_time_zone').set_timezone();
 }

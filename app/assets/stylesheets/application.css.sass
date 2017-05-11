@@ -53,33 +53,29 @@ body
 .items-list > li:last-child
  border-bottom: none
 
-
-.task-body, 
- display: table-cell
- vertical-align: middle
-
 .task-buttons
  display: table-cell
  vertical-align: middle
 
 .task-body
+ display: table-cell
+ vertical-align: middle
  width: 100%
  color: #777
+ margin-top: 5px
+ margin-bottom: 5px
  h4
   color: #333
   margin-top: 5px
   margin-bottom: 5px
- margin-top: 5px
- margin-bottom: 5px
-
-@media(min-width:768px)
- .task-body > div
-  display: inline-block
 
 @media(max-width:767px)
  .task-body > div
   display: block
-  
+
+@media(min-width:768px)
+ .task-body > div
+  display: inline-block
 
 .task-time
  margin-right: 10px

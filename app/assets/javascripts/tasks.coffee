@@ -15,5 +15,6 @@ class @DateSetter
         tbody = $(html_resp).find('#tasks-t-body')
         $('#tasks-t-body').replaceWith(tbody)
         $('#taks-caption').html("Tasks for #{date}")
+        LocalTime.run()
     })
     #console.log date

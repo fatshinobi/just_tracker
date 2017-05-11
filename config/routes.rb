@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'settings/index'
-  post 'settings/update'
-
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions' }
   resources :categories
 
   resources :tasks do
