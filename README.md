@@ -1,24 +1,17 @@
-# README
+# Just Tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Ruby on Rails minimal time tracker
 
-Things you may want to cover:
+It is application I have made for my own using. I track my time every day via this tracker and improve my productivity.
 
-* Ruby version
+## Features
 
-* System dependencies
+The tracker have adaptive design, you can use desktop and mobile types of browser.
 
-* Configuration
+## Screens
 
-* Database creation
+Desktop view
+![Desktop](https://cloud.githubusercontent.com/assets/14085661/26036087/030b8c5e-38e0-11e7-94ec-e46854ce28c6.png)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Mobile view
+![Mobile](https://cloud.githubusercontent.com/assets/14085661/26036088/030b84c0-38e0-11e7-9c61-1637614c6493.png)
